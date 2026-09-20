@@ -1,0 +1,2 @@
+# Placeholder so the Pages source folder exists before the first build.
+# launch_ar.py / deploy_pages.py populate this directory with index.html + model files.

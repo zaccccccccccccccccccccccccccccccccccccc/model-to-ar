@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>3D 模型 AR 预览</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    :root { color-scheme: dark; }
+    html, body { margin:0; height:100%; background:#0e0e12; color:#fff;
+      font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+    model-viewer { width:100%; height:100%; display:block; --poster-color: transparent; }
+    .ar-btn {
+      position:absolute; left:50%; bottom:24px; transform:translateX(-50%);
+      background:#4f7cff; color:#fff; border:none; border-radius:999px;
+      padding:14px 28px; font-size:16px; font-weight:600; box-shadow:0 6px 20px rgba(0,0,0,.4);
+    }
+    .hint { position:fixed; top:12px; left:0; right:0; text-align:center;
+      font-size:13px; opacity:.75; pointer-events:none; }
+  </style>
+</head>
+<body>
+  <model-viewer
+    id="mv"
+    src="__MODEL_GLB__"
+    ios-src="__MODEL_USDZ__"
+    alt="可旋转的 3D 模型"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    ar-placement="floor"
+    camera-controls
+    auto-rotate
+    rotation-per-second="30deg"
+    shadow-intensity="1"
+    exposure="1"
+    environment-image="neutral"
+    poster="__POSTER__"
+    loading="eager">
+    <button slot="ar-button" class="ar-btn">在 AR 中查看</button>
+  </model-viewer>
+  <div class="hint">双指缩放 · 拖动旋转 · 点下方按钮进入 AR</div>
+</body>
+</html>
