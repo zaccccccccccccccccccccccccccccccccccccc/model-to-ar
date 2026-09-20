@@ -15,14 +15,14 @@
 ```bat
 pip install segno
 python scripts/launch_ar.py "D:/path/to/model.glb" --usdz "model.usdz" --port 8000
-rem 手机连同一 Wi-Fi，打开打印的 http://<IP>:8000/ ，或扫描 site/qr.png
+rem 手机连同一 Wi-Fi，打开打印的 http://<IP>:8000/ ，或扫描 docs/qr.png
 ```
 
 ## 公网发布（GitHub Pages）
 
 ```bat
 python scripts/deploy_pages.py "add historical king model"
-rem 仓库 Settings → Pages → Branch: main, Folder: /site
+rem 仓库 Settings → Pages → Branch: master, Folder: /docs
 rem 二维码地址即 https://<user>.github.io/model-to-ar/
 ```
 
@@ -34,6 +34,6 @@ rem 二维码地址即 https://<user>.github.io/model-to-ar/
 | `assets/ar-template.html` | `<model-viewer>` AR 网页模板 |
 | `scripts/` | `launch_ar.py` / `deploy_pages.py` / `qr_generate.py` |
 | `references/` | model-viewer 属性、模型转换、托管方式详解 |
-| `site/` | 由脚本生成的可部署 AR 页面（Pages 源） |
+| `docs/` | 由脚本生成的可部署 AR 页面（Pages 源） |
 
 > iOS AR 需要额外的 `.usdz` 文件；Android 仅需 `.glb`。详见 `references/convert.md`。

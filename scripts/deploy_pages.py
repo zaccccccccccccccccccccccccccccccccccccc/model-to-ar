@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""Commit & push the ./site directory to the current git repo (GitHub Pages source).
+"""Commit & push the ./docs directory to the current git repo (GitHub Pages source).
 
 Usage:
   python deploy_pages.py "commit message"
 
 Assumptions:
   - The current working directory is a git repo already connected to a GitHub remote.
-  - GitHub Pages is configured to serve from branch `main`, folder `/site`
-    (Settings -> Pages -> Branch: main, Folder: /site).
+  - GitHub Pages is configured to serve from branch `master`, folder `/docs`
+    (Settings -> Pages -> Branch: master, Folder: /docs).
 Prints the resulting public URL after push, and the command to regenerate the public QR.
 """
 import os
@@ -35,7 +35,7 @@ def main():
     except Exception:
         login = "<user>"
     try:
-        run(["git", "add", "site"])
+        run(["git", "add", "docs"])
         run(["git", "commit", "-m", msg])
         run(["git", "push"])
     except subprocess.CalledProcessError as e:

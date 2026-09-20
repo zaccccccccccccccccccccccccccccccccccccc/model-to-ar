@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a model-viewer AR page into ./site, start a local server, and generate a LAN QR.
+"""Build a model-viewer AR page into ./docs, start a local server, and generate a LAN QR.
 
 Usage:
   python launch_ar.py MODEL.glb [--usdz MODEL.usdz] [--poster poster.jpg]
@@ -92,7 +92,7 @@ def main():
     ap.add_argument("--usdz", default="", help="Optional .usdz for iOS AR")
     ap.add_argument("--poster", default="", help="Optional poster image")
     ap.add_argument("--port", type=int, default=8000)
-    ap.add_argument("--out", default="site")
+    ap.add_argument("--out", default="docs")
     ap.add_argument("--no-serve", action="store_true")
     a = ap.parse_args()
 

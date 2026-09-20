@@ -31,20 +31,20 @@ LAN / via ngrok without any hosting, and published publicly through GitHub Pages
    - `.stl` / `.3mf` / `.obj` → convert to `.glb` following `references/convert.md`.
    - For iOS AR, also produce a `.usdz` from the `.glb` (see `references/convert.md`). Without a USDZ file the
      AR button still works on Android, but iOS Quick Look will not launch.
-2. **Build & test locally** with `scripts/launch_ar.py`: it copies `assets/ar-template.html` into `site/`,
-   injects the model path, copies the model (and optional usdz/poster) into `site/`, starts a local server,
-   and writes a LAN QR to `site/qr.png`.
+2. **Build & test locally** with `scripts/launch_ar.py`: it copies `assets/ar-template.html` into `docs/`,
+   injects the model path, copies the model (and optional usdz/poster) into `docs/`, starts a local server,
+   and writes a LAN QR to `docs/qr.png`.
    ```
    python scripts/launch_ar.py path/to/model.glb --usdz path/to/model.usdz --poster poster.jpg --port 8000
    ```
    Keep the server running, then on the phone (same Wi-Fi) open the printed `http://<LAN-IP>:<port>/` URL,
-   or just scan `site/qr.png`. Verify the model loads and the AR button works.
-3. **Deploy publicly (optional)** with `scripts/deploy_pages.py`: it commits & pushes `site/` to the current
+   or just scan `docs/qr.png`. Verify the model loads and the AR button works.
+3. **Deploy publicly (optional)** with `scripts/deploy_pages.py`: it commits & pushes `docs/` to the current
    git repo, then prints the public URL.
    ```
    python scripts/deploy_pages.py "add historical king model"
    ```
-   Enable Pages (repo **Settings → Pages → Branch: main, Folder: /site**). The public QR URL becomes
+   Enable Pages (repo **Settings → Pages → Branch: master, Folder: /docs**). The public QR URL becomes
    `https://<user>.github.io/<repo>/`. Regenerate the QR with
    `python scripts/qr_generate.py "https://<user>.github.io/<repo>/"`.
    Full GitHub Pages + ngrok walkthrough lives in `references/serving-local.md`.
@@ -52,9 +52,9 @@ LAN / via ngrok without any hosting, and published publicly through GitHub Pages
 
 ## Scripts
 
-- `scripts/launch_ar.py` — build `site/`, inject the template, copy assets, start a local server, generate a LAN QR.
+- `scripts/launch_ar.py` — build `docs/`, inject the template, copy assets, start a local server, generate a LAN QR.
   Args: `MODEL [--usdz X] [--poster P] [--port N] [--out DIR] [--no-serve]`.
-- `scripts/deploy_pages.py` — `git add site/ && commit && push`; prints the resulting Pages URL. Arg: commit message.
+- `scripts/deploy_pages.py` — `git add docs/ && commit && push`; prints the resulting Pages URL. Arg: commit message.
 - `scripts/qr_generate.py` — standalone QR for any URL. Args: `URL [OUT.png]`.
 
 ## Assets

@@ -11,7 +11,7 @@ WebAR needs the page reachable by the phone. Three options, from quickest to mos
   (usually `192.168.x.x`). `launch_ar.py` auto-detects it.
 - **Firewall:** when Windows prompts, allow `python` through **Private** networks. If blocked, run once as
   admin or add a rule: `netsh advfirewall firewall add rule name="AR" dir=in action=allow protocol=TCP localport=8000`.
-- Open the URL in the phone browser, or scan the generated `site/qr.png`.
+- Open the URL in the phone browser, or scan the generated `docs/qr.png`.
 - AR over plain http works on Android Scene Viewer; iOS Quick Look prefers https (use option 2 if it fails).
 
 ## 2. ngrok HTTPS tunnel (public link, no hosting account)
@@ -32,10 +32,10 @@ Anyone with the QR can open it (the tunnel forwards to your local server). Free 
 
 ## 3. GitHub Pages (permanent public URL, free HTTPS)
 
-Best for sharing the final QR broadly. The skill's `site/` folder is the Pages source.
+Best for sharing the final QR broadly. The skill's `docs/` folder is the Pages source.
 
 1. Create the repo and push (see `SKILL.md` workflow / `deploy_pages.py`).
-2. In the repo: **Settings → Pages → Build and deployment → Branch: main, Folder: /site** → Save.
+2. In the repo: **Settings → Pages → Build and deployment → Branch: master, Folder: /docs** → Save.
 3. Wait ~1 minute. The page is live at `https://<user>.github.io/<repo>/`.
 4. Regenerate the public QR:
    ```bat
